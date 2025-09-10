@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygraph Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    Polygraph Test
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Welcome Section -->
+            <section id="welcome" class="welcome-section">
+                <h1>Experience a Realistic Polygraph Test</h1>
+                <p>This tool recreates the experience of taking a polygraph test with simulated physiological monitoring. Answer questions honestly and see how your responses might be interpreted in a real examination.</p>
+                <button class="btn" onclick="showSetup()">Begin Test</button>
+            </section>
+
+            <!-- Setup Section -->
+            <section id="setup" class="setup-section">
+                <h2 style="text-align: center; color: var(--accent-gray); margin-bottom: 30px;">Test Setup</h2>
+                
+                <div class="instructions">
+                    <h3>Before We Begin</h3>
+                    <ul>
+                        <li>This is a simulation for educational purposes only</li>
+                        <li>You will be asked a series of questions</li>
+                        <li>Physiological responses will be monitored and displayed</li>
+                        <li>Answer each question truthfully for the most realistic experience</li>
+                        <li>The test will take approximately 5-10 minutes</li>
+                    </ul>
+                </div>
+
+                <form id="setupForm">
+                    <div class="form-group">
+                        <label for="subjectName">Subject Name</label>
+                        <input type="text" id="subjectName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testPurpose">Test Purpose</label>
+                        <input type="text" id="testPurpose" placeholder="e.g., Criminal investigation, Personal inquiry" required>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn">Start Test</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Test Section -->
+            <section id="test" class="test-section">
+                <div class="polygraph-display">
+                    <h2 style="text-align: center; color: var(--accent-gray); margin-bottom: 30px;">Physiological Monitoring</h2>
+                    
+                    <div class="graphs-container">
+                        <div class="graph-box">
+                            <div class="graph-title">
+                                <i class="fas fa-heartbeat" style="color: var(--red);"></i>
+                                <h3>Heart Rate</h3>
+                            </div>
+                            <canvas id="heartRateCanvas" class="graph-canvas"></canvas>
+                        </div>
+                        
+                        <div class="graph-box">
+                            <div class="graph-title">
+                                <i class="fas fa-lungs" style="color: var(--blue);"></i>
+                                <h3>Respiration</h3>
+                            </div>
+                            <canvas id="respirationCanvas" class="graph-canvas"></canvas>
+                        </div>
+                        
+                        <div class="graph-box">
+                            <div class="graph-title">
+                                <i class="fas fa-tint" style="color: var(--dark-gray);"></i>
+                                <h3>Skin Conductance</h3>
+                            </div>
+                            <canvas id="sweatCanvas" class="graph-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-box">
+                    <div class="question-number" id="questionNumber">Question 1 of 10</div>
+                    <h2 id="questionText">We found your location near the spot, you have been gone there</h2>
+                    <div class="answer-buttons">
+                        <button class="btn answer-btn true" onclick="answerQuestion('true')">True</button>
+                        <button class="btn answer-btn false" onclick="answerQuestion('false')">False</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results" class="results-section">
+                <div class="result-header">
+                    <h2>Test Results</h2>
+                    <p style="color: var(--dark-gray);">Analysis of physiological responses during questioning</p>
+                </div>
+
+                <div class="result-summary">
+                    <h3>Overall Assessment</h3>
+                    <div id="deceptionIndicator" class="deception-indicator">Processing...</div>
+                    <p id="resultDescription" style="color: var(--dark-gray); margin-top: 20px;">Analyzing responses...</p>
+                </div>
+
+                <div class="question-results">
+                    <h3 style="color: var(--darker-gray); margin-bottom: 20px;">Question-by-Question Analysis</h3>
+                    <div id="questionResults"></div>
+                </div>
+
+                <button class="btn btn-outline" onclick="resetTest()" style="margin-top: 30px;">Take Another Test</button>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            Made with ❤️ by Sauravhhh
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+  </html>
